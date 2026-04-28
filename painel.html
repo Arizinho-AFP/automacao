@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFP Sistemas — Painel</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a0a14">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <header class="app-header">
+            <div class="user-info">
+                <h1>Olá, <strong>AFP Sistemas</strong></h1>
+                <p>Automação inteligente</p>
+            </div>
+        </header>
+
+        <main class="app-content">
+
+            <div class="weather-card">
+                <div class="weather-info">
+                    <span class="status">Sistema</span>
+                    <span class="temp">Ativo</span>
+                </div>
+                <div class="weather-icon">
+                    <i class="fa-solid fa-house-signal"></i>
+                    <div class="nome-igreja">AFP</div>
+                </div>
+                <div class="weather-details">
+                    <div><i class="fa-solid fa-wifi"></i> Online</div>
+                    <div id="status-message">Conectando...</div>
+                </div>
+            </div>
+
+            <!-- ── ABA: HOME ─────────────────────────────────── -->
+            <section id="tab-home" class="tab-content">
+
+                <div class="room-selector">
+                    <button class="room-btn active" onclick="filterRoom('all',this)">Tudo</button>
+                    <button class="room-btn" onclick="filterRoom('luzes',this)">Luzes</button>
+                    <button class="room-btn" onclick="filterRoom('ventiladores',this)">Ventiladores</button>
+                    <button class="room-btn" onclick="filterRoom('ares',this)">Ar condicionado</button>
+                    <button class="room-btn" onclick="filterRoom('externos',this)">Externo</button>
+                    <button class="room-btn" onclick="filterRoom('tomadas',this)">Tomadas</button>
+                </div>
+
+                <div class="section-title">
+                    <h3>Dispositivos</h3>
+                </div>
+
+                <div class="devices-grid">
+
+                    <!-- LUZES -->
+                    <div class="device-card" data-room="luzes">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('luz_01')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-luz_01"
+                                        onchange="toggleDevice('luz_01',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Luz 01</h4>
+                            <p>Iluminação</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="luzes">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('luz_02')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-luz_02"
+                                        onchange="toggleDevice('luz_02',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Luz 02</h4>
+                            <p>Iluminação</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="luzes">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('luz_03')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-luz_03"
+                                        onchange="toggleDevice('luz_03',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Luz 03</h4>
+                            <p>Iluminação</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="luzes">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('luz_04')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-luz_04"
+                                        onchange="toggleDevice('luz_04',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Luz 04</h4>
+                            <p>Iluminação</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="luzes">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('luz_05')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-luz_05"
+                                        onchange="toggleDevice('luz_05',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Luz 05</h4>
+                            <p>Iluminação</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="luzes">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('luz_06')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-luz_06"
+                                        onchange="toggleDevice('luz_06',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Luz 06</h4>
+                            <p>Iluminação</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="luzes">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('luz_07')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-luz_07"
+                                        onchange="toggleDevice('luz_07',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Luz 07</h4>
+                            <p>Iluminação</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="luzes">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('luz_08')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-luz_08"
+                                        onchange="toggleDevice('luz_08',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Luz 08</h4>
+                            <p>Iluminação</p>
+                        </div>
+                    </div>
+
+                    <!-- VENTILADORES -->
+                    <div class="device-card" data-room="ventiladores">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-fan"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('vent_01')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-vent_01"
+                                        onchange="toggleDevice('vent_01',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Ventilador 01</h4>
+                            <p>Ventilação</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="ventiladores">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-fan"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('vent_02')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-vent_02"
+                                        onchange="toggleDevice('vent_02',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Ventilador 02</h4>
+                            <p>Ventilação</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="ventiladores">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-fan"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('vent_03')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-vent_03"
+                                        onchange="toggleDevice('vent_03',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Ventilador 03</h4>
+                            <p>Ventilação</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="ventiladores">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-fan"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('vent_04')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-vent_04"
+                                        onchange="toggleDevice('vent_04',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Ventilador 04</h4>
+                            <p>Ventilação</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="ventiladores">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-fan"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('vent_05')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-vent_05"
+                                        onchange="toggleDevice('vent_05',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Ventilador 05</h4>
+                            <p>Ventilação</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="ventiladores">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-fan"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('vent_06')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-vent_06"
+                                        onchange="toggleDevice('vent_06',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Ventilador 06</h4>
+                            <p>Ventilação</p>
+                        </div>
+                    </div>
+
+                    <!-- ARES -->
+                    <div class="device-card" data-room="ares">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-snowflake"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('ar_01')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-ar_01"
+                                        onchange="toggleDevice('ar_01',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Ar Condicionado 01</h4>
+                            <p>Climatização</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="ares">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-snowflake"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('ar_02')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-ar_02"
+                                        onchange="toggleDevice('ar_02',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Ar Condicionado 02</h4>
+                            <p>Climatização</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="ares">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-snowflake"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('ar_03')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-ar_03"
+                                        onchange="toggleDevice('ar_03',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Ar Condicionado 03</h4>
+                            <p>Climatização</p>
+                        </div>
+                    </div>
+
+                    <!-- EXTERNOS -->
+                    <div class="device-card" data-room="externos">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('refletor_dir')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-refletor_dir"
+                                        onchange="toggleDevice('refletor_dir',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Refletor Direito</h4>
+                            <p>Externo</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="externos">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('refletor_esq')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-refletor_esq"
+                                        onchange="toggleDevice('refletor_esq',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Refletor Esquerdo</h4>
+                            <p>Externo</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="externos">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-building"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('fachada')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-fachada"
+                                        onchange="toggleDevice('fachada',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Fachada</h4>
+                            <p>Externo</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="externos">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-star"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('logo')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-logo"
+                                        onchange="toggleDevice('logo',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Logotipo</h4>
+                            <p>Externo</p>
+                        </div>
+                    </div>
+
+                    <!-- TOMADAS -->
+                    <div class="device-card" data-room="tomadas">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-plug"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('tomada_01')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-tomada_01"
+                                        onchange="toggleDevice('tomada_01',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Tomada 01</h4>
+                            <p>Energia</p>
+                        </div>
+                    </div>
+
+                    <div class="device-card" data-room="tomadas">
+                        <div class="card-header">
+                            <div class="icon-box"><i class="fa-solid fa-plug"></i></div>
+                            <div class="card-controls">
+                                <button class="btn-card-timer" onclick="setTimer('tomada_02')"><i
+                                        class="fa-solid fa-hourglass-start"></i></button>
+                                <label class="switch"><input type="checkbox" id="switch-tomada_02"
+                                        onchange="toggleDevice('tomada_02',this.checked)"><span
+                                        class="slider"></span></label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4>Tomada 02</h4>
+                            <p>Energia</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── ABA: AGENDA ───────────────────────────────── -->
+            <section id="tab-agenda" class="tab-content" style="display:none">
+                <div class="section-title">
+                    <h3>Agendamentos</h3>
+                    <button class="btn-icon"
+                        style="border:none;background:transparent;font-size:30px;color:var(--primary)"
+                        onclick="openAgendaModal()">
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </button>
+                </div>
+                <div id="lista-agendamentos"></div>
+            </section>
+
+            <!-- ── ABA: GERAL ────────────────────────────────── -->
+            <section id="tab-groups" class="tab-content" style="display:none">
+                <div class="section-title">
+                    <h3>Controle Geral</h3>
+                </div>
+
+                <h4
+                    style="margin:10px 0 15px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700">
+                    Iluminação</h4>
+                <div class="scene-card" onclick="toggleAll('luzes','on')">
+                    <div class="scene-icon" style="background:linear-gradient(135deg,#f6d365,#fda085)"><i
+                            class="fa-solid fa-lightbulb"></i></div>
+                    <div class="scene-info">
+                        <h4>Ligar todas as luzes</h4>
+                        <p>Circuito completo de iluminação</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+                <div class="scene-card" onclick="toggleAll('luzes','off')">
+                    <div class="scene-icon" style="background:linear-gradient(135deg,#434343,#000)"><i
+                            class="fa-solid fa-power-off"></i></div>
+                    <div class="scene-info">
+                        <h4>Apagar todas as luzes</h4>
+                        <p>Circuito completo de iluminação</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+                <div class="scene-card" onclick="openTimerModal('luzes',true)">
+                    <div class="scene-icon" style="background:linear-gradient(135deg,#667eea,#764ba2)"><i
+                            class="fa-solid fa-hourglass-start"></i></div>
+                    <div class="scene-info">
+                        <h4>Timer — Luzes</h4>
+                        <p>Desligar automaticamente em X min</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+
+                <h4
+                    style="margin:25px 0 15px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700">
+                    Ventilação</h4>
+                <div class="scene-card" onclick="toggleAll('ventiladores','on')">
+                    <div class="scene-icon" style="background:linear-gradient(135deg,#f6d365,#fda085)"><i
+                            class="fa-solid fa-fan"></i></div>
+                    <div class="scene-info">
+                        <h4>Ligar ventilação</h4>
+                        <p>Todos os ventiladores</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+                <div class="scene-card" onclick="toggleAll('ventiladores','off')">
+                    <div class="scene-icon" style="background:linear-gradient(135deg,#434343,#000)"><i
+                            class="fa-solid fa-power-off"></i></div>
+                    <div class="scene-info">
+                        <h4>Desligar ventilação</h4>
+                        <p>Todos os ventiladores</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+                <div class="scene-card" onclick="openTimerModal('ventiladores',true)">
+                    <div class="scene-icon" style="background:linear-gradient(135deg,#667eea,#764ba2)"><i
+                            class="fa-solid fa-hourglass-start"></i></div>
+                    <div class="scene-info">
+                        <h4>Timer — Ventilação</h4>
+                        <p>Desligar automaticamente em X min</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+
+                <h4
+                    style="margin:25px 0 15px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700">
+                    Ar condicionado</h4>
+                <div class="scene-card" onclick="toggleAll('ares','on')">
+                    <div class="scene-icon" style="background:linear-gradient(135deg,#f6d365,#fda085)"><i
+                            class="fa-solid fa-snowflake"></i></div>
+                    <div class="scene-info">
+                        <h4>Ligar ar condicionado</h4>
+                        <p>Todos os equipamentos</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+                <div class="scene-card" onclick="toggleAll('ares','off')">
+                    <div class="scene-icon" style="background:linear-gradient(135deg,#434343,#000)"><i
+                            class="fa-solid fa-power-off"></i></div>
+                    <div class="scene-info">
+                        <h4>Desligar ar condicionado</h4>
+                        <p>Todos os equipamentos</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+
+                <h4
+                    style="margin:25px 0 15px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700">
+                    Iluminação externa</h4>
+                <div class="scene-card" onclick="toggleAll('externos','on')">
+                    <div class="scene-icon" style="background:linear-gradient(135deg,#f6d365,#fda085)"><i
+                            class="fa-solid fa-building"></i></div>
+                    <div class="scene-info">
+                        <h4>Ligar iluminação externa</h4>
+                        <p>Refletores e fachada</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+                <div class="scene-card" onclick="toggleAll('externos','off')">
+                    <div class="scene-icon" style="background:linear-gradient(135deg,#434343,#000)"><i
+                            class="fa-solid fa-power-off"></i></div>
+                    <div class="scene-info">
+                        <h4>Desligar iluminação externa</h4>
+                        <p>Refletores e fachada</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+                <div class="scene-card" onclick="openTimerModal('externos',true)">
+                    <div class="scene-icon" style="background:linear-gradient(135deg,#667eea,#764ba2)"><i
+                            class="fa-solid fa-hourglass-start"></i></div>
+                    <div class="scene-info">
+                        <h4>Timer — Externo</h4>
+                        <p>Desligar automaticamente em X min</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+
+                <h4
+                    style="margin:25px 0 15px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700">
+                    Tomadas</h4>
+                <div class="scene-card" onclick="toggleAll('tomadas','on')">
+                    <div class="scene-icon" style="background:linear-gradient(135deg,#f6d365,#fda085)"><i
+                            class="fa-solid fa-plug"></i></div>
+                    <div class="scene-info">
+                        <h4>Ligar todas as tomadas</h4>
+                        <p>Circuito de tomadas</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+                <div class="scene-card" onclick="toggleAll('tomadas','off')">
+                    <div class="scene-icon" style="background:linear-gradient(135deg,#434343,#000)"><i
+                            class="fa-solid fa-power-off"></i></div>
+                    <div class="scene-info">
+                        <h4>Desligar todas as tomadas</h4>
+                        <p>Circuito de tomadas</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+
+            </section>
+
+        </main>
+
+        <div class="menu-overlay" id="menu-overlay" onclick="toggleMenu()"></div>
+        <button class="fab-btn" onclick="toggleMenu()"><i class="fa-solid fa-bars" id="fab-icon"></i></button>
+
+        <nav class="bottom-nav" id="bottom-nav">
+            <a href="#home" class="nav-item active">
+                <i class="fa-solid fa-house-chimney"></i><span>Início</span>
+            </a>
+            <a href="#agenda" class="nav-item">
+                <i class="fa-solid fa-calendar-day"></i><span>Agenda</span>
+            </a>
+            <a href="#groups" class="nav-item">
+                <i class="fa-solid fa-layer-group"></i><span>Geral</span>
+            </a>
+            <a href="#" class="nav-item logout-button">
+                <i class="fa-solid fa-right-from-bracket" style="color:#e74c3c"></i>
+                <span style="color:#e74c3c">Sair</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- MODAL AGENDA -->
+    <div id="agenda-modal" class="modal-overlay" style="display:none">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Novo Agendamento</h3>
+                <button class="btn-close" onclick="closeAgendaModal()"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <label class="input-label">Dispositivo</label>
+            <select id="agenda-device" class="custom-select">
+                <optgroup label="Luzes">
+                    <option value="luz_01">Luz 01</option>
+                    <option value="luz_02">Luz 02</option>
+                    <option value="luz_03">Luz 03</option>
+                    <option value="luz_04">Luz 04</option>
+                    <option value="luz_05">Luz 05</option>
+                    <option value="luz_06">Luz 06</option>
+                    <option value="luz_07">Luz 07</option>
+                    <option value="luz_08">Luz 08</option>
+                </optgroup>
+                <optgroup label="Ventiladores">
+                    <option value="vent_01">Ventilador 01</option>
+                    <option value="vent_02">Ventilador 02</option>
+                    <option value="vent_03">Ventilador 03</option>
+                    <option value="vent_04">Ventilador 04</option>
+                    <option value="vent_05">Ventilador 05</option>
+                    <option value="vent_06">Ventilador 06</option>
+                </optgroup>
+                <optgroup label="Ar Condicionado">
+                    <option value="ar_01">Ar Condicionado 01</option>
+                    <option value="ar_02">Ar Condicionado 02</option>
+                    <option value="ar_03">Ar Condicionado 03</option>
+                </optgroup>
+                <optgroup label="Externo">
+                    <option value="refletor_dir">Refletor Direito</option>
+                    <option value="refletor_esq">Refletor Esquerdo</option>
+                    <option value="fachada">Fachada</option>
+                    <option value="logo">Logotipo</option>
+                </optgroup>
+                <optgroup label="Tomadas">
+                    <option value="tomada_01">Tomada 01</option>
+                    <option value="tomada_02">Tomada 02</option>
+                </optgroup>
+            </select>
+
+            <label class="input-label">Ação</label>
+            <div class="toggle-switch-container">
+                <button id="btn-action-on" class="selected" onclick="setAgendaAction(1)">Ligar</button>
+                <button id="btn-action-off" onclick="setAgendaAction(0)">Desligar</button>
+            </div>
+
+            <label class="input-label">Dias</label>
+            <div class="week-selector">
+                <span onclick="toggleDay(0)" id="day-0">D</span>
+                <span onclick="toggleDay(1)" id="day-1">S</span>
+                <span onclick="toggleDay(2)" id="day-2">T</span>
+                <span onclick="toggleDay(3)" id="day-3">Q</span>
+                <span onclick="toggleDay(4)" id="day-4">Q</span>
+                <span onclick="toggleDay(5)" id="day-5">S</span>
+                <span onclick="toggleDay(6)" id="day-6">S</span>
+            </div>
+
+            <label class="input-label">Horário</label>
+            <div class="custom-scroll-picker">
+                <div class="picker-column" id="scroll-hora"></div>
+                <div class="picker-separator">:</div>
+                <div class="picker-column" id="scroll-min"></div>
+            </div>
+            <input type="hidden" id="sel-hora">
+            <input type="hidden" id="sel-min">
+
+            <button class="btn-primary-full" onclick="saveAgenda()">Agendar</button>
+        </div>
+    </div>
+
+    <!-- MODAL TIMER -->
+    <div id="timer-modal" class="modal-overlay" style="display:none">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Timer Rápido</h3>
+                <button class="btn-close" onclick="closeModal()"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <p style="text-align:center;color:#fff;margin-bottom:10px">Desligar automaticamente em:</p>
+            <div class="timer-display">
+                <input type="number" id="modal-time-input" placeholder="00" class="timer-big-input">
+                <span>min</span>
+            </div>
+            <div class="timer-presets">
+                <button onclick="setModalValue(15)" class="btn-preset">15m</button>
+                <button onclick="setModalValue(30)" class="btn-preset">30m</button>
+                <button onclick="setModalValue(60)" class="btn-preset">1h</button>
+                <button onclick="setModalValue(120)" class="btn-preset">2h</button>
+            </div>
+            <button class="btn-primary-full" onclick="confirmTimer()">Iniciar Contagem</button>
+        </div>
+    </div>
+
+    <script src="app-remoto.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AFP Sistemas — Entrar</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a0a14">
+</head>
+<body class="login-page">
+
+    <div class="login-wrapper">
+        <div class="login-header">
+            <img src="img/logo.png" alt="Logo AFP Sistemas">
+            <!-- Nome e slogan são preenchidos pelo login-remoto.js via API -->
+            <h1>AFP Sistemas</h1>
+            <p>Automação inteligente</p>
+        </div>
+
+        <div class="login-card">
+            <div id="pin-display" class="pin-display">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+            </div>
+
+            <p class="error-message" id="error-message">Digite seu PIN de acesso</p>
+
+            <div class="keypad">
+                <button class="key" data-value="1">1</button>
+                <button class="key" data-value="2">2</button>
+                <button class="key" data-value="3">3</button>
+                <button class="key" data-value="4">4</button>
+                <button class="key" data-value="5">5</button>
+                <button class="key" data-value="6">6</button>
+                <button class="key" data-value="7">7</button>
+                <button class="key" data-value="8">8</button>
+                <button class="key" data-value="9">9</button>
+                <button class="key-func" id="key-clear">
+                    <i class="fa-solid fa-backspace"></i>
+                </button>
+                <button class="key" data-value="0">0</button>
+                <button class="key-func key-submit" id="key-submit">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="login-remoto.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+# ============================================================
+# AFP Sistemas — .htaccess Principal
+# Pasta: /automacao-iasd/
+# ============================================================
+
+# --- CACHE ---
+<IfModule mod_headers.c>
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+</IfModule>
+
+# --- FORÇA HTTPS ---
+# ⚠️ TESTE LOCAL: deixe comentado. Descomente ao subir para o Hostgator.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+#    RewriteCond %{HTTPS} off
+#    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# --- PROÍBE LISTAGEM DE DIRETÓRIO ---
+Options -Indexes
+
+# --- PROTEGE ARQUIVOS SENSÍVEIS ---
+# Bloqueia acesso direto aos JSONs de dados
+<FilesMatch "\.(json)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# --- DESATIVA INJEÇÃO DA HOSPEDAGEM ---
+php_value auto_append_file none
+php_value auto_prepend_file none
+
+# --- CONFIGURAÇÕES DO api.php ---
+<Files "api.php">
+    # Permite acesso ao JSON (necessário pois a regra acima bloquearia)
+    Order Allow,Deny
+    Allow from all
+    # Desativa filtros de segurança agressivos para o ESP32 funcionar
+    <IfModule mod_security.c>
+        SecFilterEngine Off
+        SecFilterScanPOST Off
+    </IfModule>
+</Files>
+
+# --- PROTEGE O ADMIN ---
+# O admin.php já tem senha, mas adiciona proteção extra de IP se quiser
+# Descomente e coloque seu IP fixo para restringir ainda mais:
+# <Files "admin.php">
+#     Order Deny,Allow
+#     Deny from all
+#     Allow from SEU.IP.AQUI
+# </Files>
